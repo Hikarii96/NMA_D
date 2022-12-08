@@ -1,0 +1,1134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NMAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accidente">
+          <Key>
+            <PropertyRef Name="id_accidente" />
+          </Key>
+          <Property Name="id_accidente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fec_accident" Type="date" />
+          <Property Name="run_trabajador" Type="varchar" MaxLength="50" />
+          <Property Name="doc_diat" Type="varbinary(max)" />
+          <Property Name="nombre_doc_diat" Type="varchar" MaxLength="50" />
+          <Property Name="content_type_doc_diat" Type="nvarchar" MaxLength="200" />
+          <Property Name="estado_accidente" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="asesoria">
+          <Key>
+            <PropertyRef Name="id_asesoria" />
+          </Key>
+          <Property Name="id_asesoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fec_asesoria" Type="date" />
+          <Property Name="hor_asesoria" Type="time" Precision="7" />
+          <Property Name="estado_asesoria" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_aseso" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="atraso">
+          <Key>
+            <PropertyRef Name="id_atraso" />
+          </Key>
+          <Property Name="id_atraso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="obs_atraso" Type="varchar" MaxLength="50" />
+          <Property Name="fec_atraso" Type="date" />
+          <Property Name="estado_atraso" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_atraso" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="capacitacion">
+          <Key>
+            <PropertyRef Name="id_capacitacion" />
+          </Key>
+          <Property Name="id_capacitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fec_capacit" Type="date" />
+          <Property Name="tema_capacit" Type="varchar" MaxLength="50" />
+          <Property Name="material_capacit" Type="varchar" MaxLength="50" />
+          <Property Name="list_asistente" Type="varchar" MaxLength="250" />
+          <Property Name="estad_capacit" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_capaci" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="caso">
+          <Key>
+            <PropertyRef Name="id_caso" />
+          </Key>
+          <Property Name="id_caso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="correspondencia" Type="varchar" MaxLength="50" />
+          <Property Name="documentos" Type="varchar" MaxLength="50" />
+          <Property Name="obs_profesional" Type="nvarchar" MaxLength="250" />
+          <Property Name="conver_grabada" Type="varbinary(max)" />
+          <Property Name="estado_caso" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_caso" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="checklist">
+          <Key>
+            <PropertyRef Name="id_checklist" />
+          </Key>
+          <Property Name="id_checklist" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_checklist" Type="varchar" MaxLength="50" />
+          <Property Name="obs_checklist" Type="nvarchar" MaxLength="250" />
+          <Property Name="document_rev" Type="varbinary(max)" />
+          <Property Name="nombre_doc" Type="varchar" MaxLength="50" />
+          <Property Name="extension_doc" Type="varchar" MaxLength="50" />
+          <Property Name="estado_checklist" Type="bit" />
+          <Property Name="id_visita" Type="int" />
+        </EntityType>
+        <EntityType Name="contrato">
+          <Key>
+            <PropertyRef Name="id_contrato" />
+          </Key>
+          <Property Name="id_contrato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fec_inicio_cont" Type="date" />
+          <Property Name="fec_termino_cont" Type="date" />
+          <Property Name="estado_contrato" Type="varchar" MaxLength="50" />
+          <Property Name="contrado_firmado" Type="varbinary(max)" />
+          <Property Name="nombre_contrato" Type="varchar(max)" />
+          <Property Name="valor_contrato" Type="int" />
+          <Property Name="id_empresa" Type="int" />
+        </EntityType>
+        <EntityType Name="detalle_factura">
+          <Key>
+            <PropertyRef Name="id_detalle_factura" />
+          </Key>
+          <Property Name="id_detalle_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="valor_bruto" Type="int" />
+          <Property Name="valor_neto" Type="int" />
+          <Property Name="id_factura" Type="int" />
+        </EntityType>
+        <EntityType Name="empresa">
+          <Key>
+            <PropertyRef Name="id_empresa" />
+          </Key>
+          <Property Name="id_empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rut_empresa" Type="varchar" MaxLength="50" />
+          <Property Name="nom_empresa" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_empresa" Type="varchar" MaxLength="50" />
+          <Property Name="telefono_emp" Type="int" />
+          <Property Name="correo_emp" Type="varchar" MaxLength="50" />
+          <Property Name="region_empresa" Type="varchar" MaxLength="50" />
+          <Property Name="comuna_emp" Type="varchar" MaxLength="50" />
+          <Property Name="direccion_emp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="factura">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fec_factura" Type="date" />
+          <Property Name="fec_vencimiento" Type="date" />
+          <Property Name="estado_pago" Type="bit" />
+          <Property Name="visita_extra" Type="int" />
+          <Property Name="capaci_extra" Type="int" />
+          <Property Name="aseso_extra" Type="int" />
+          <Property Name="total_factura" Type="int" />
+          <Property Name="id_contrato" Type="int" />
+        </EntityType>
+        <EntityType Name="multa">
+          <Key>
+            <PropertyRef Name="id_multa" />
+          </Key>
+          <Property Name="id_multa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="multa_ent_fisc" Type="varchar" MaxLength="50" />
+          <Property Name="descrip_multa" Type="nvarchar" MaxLength="250" />
+          <Property Name="valor_multa" Type="int" />
+          <Property Name="estado_multa" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="id_tipo_multa" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tipo_multa">
+          <Key>
+            <PropertyRef Name="id_tipo_multa" />
+          </Key>
+          <Property Name="id_tipo_multa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_tip_multa" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipo_usuario">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_tip_user" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="run" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="a_paterno" Type="varchar" MaxLength="50" />
+          <Property Name="a_materno" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="int" />
+          <Property Name="estado_usuario" Type="varchar" MaxLength="50" />
+          <Property Name="id_empresa" Type="int" />
+          <Property Name="id_tipo_usuario" Type="int" />
+        </EntityType>
+        <EntityType Name="visita">
+          <Key>
+            <PropertyRef Name="id_visita" />
+          </Key>
+          <Property Name="id_visita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fec_visita" Type="date" />
+          <Property Name="direcc_visita" Type="varchar" MaxLength="50" />
+          <Property Name="hor_visita" Type="datetime" />
+          <Property Name="estado_visita" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_visita" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="int" />
+        </EntityType>
+        <Association Name="FK_accidente_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="accidente" Type="Self.accidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="accidente">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_asesoria_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="asesoria" Type="Self.asesoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="asesoria">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atraso_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="atraso" Type="Self.atraso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="atraso">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_capacitacion_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="capacitacion" Type="Self.capacitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="capacitacion">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caso_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="caso" Type="Self.caso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="caso">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_checlist_visita">
+          <End Role="visita" Type="Self.visita" Multiplicity="0..1" />
+          <End Role="checklist" Type="Self.checklist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visita">
+              <PropertyRef Name="id_visita" />
+            </Principal>
+            <Dependent Role="checklist">
+              <PropertyRef Name="id_visita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contrato_empresa">
+          <End Role="empresa" Type="Self.empresa" Multiplicity="0..1" />
+          <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa">
+              <PropertyRef Name="id_empresa" />
+            </Principal>
+            <Dependent Role="contrato">
+              <PropertyRef Name="id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_factura_factura">
+          <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
+          <End Role="detalle_factura" Type="Self.detalle_factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factura">
+              <PropertyRef Name="id_factura" />
+            </Principal>
+            <Dependent Role="detalle_factura">
+              <PropertyRef Name="id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_contrato">
+          <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contrato">
+              <PropertyRef Name="id_contrato" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="id_contrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_multa_tipo_multa">
+          <End Role="tipo_multa" Type="Self.tipo_multa" Multiplicity="0..1" />
+          <End Role="multa" Type="Self.multa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_multa">
+              <PropertyRef Name="id_tipo_multa" />
+            </Principal>
+            <Dependent Role="multa">
+              <PropertyRef Name="id_tipo_multa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_multa_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="multa" Type="Self.multa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="multa">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_contrato">
+          <End Role="empresa" Type="Self.empresa" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa">
+              <PropertyRef Name="id_empresa" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_tipo_usuario">
+          <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_visita_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="visita" Type="Self.visita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="visita">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NMAModelStoreContainer">
+          <EntitySet Name="accidente" EntityType="Self.accidente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="asesoria" EntityType="Self.asesoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="atraso" EntityType="Self.atraso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="capacitacion" EntityType="Self.capacitacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="caso" EntityType="Self.caso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="checklist" EntityType="Self.checklist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contrato" EntityType="Self.contrato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalle_factura" EntityType="Self.detalle_factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empresa" EntityType="Self.empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="factura" EntityType="Self.factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="multa" EntityType="Self.multa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_multa" EntityType="Self.tipo_multa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_usuario" EntityType="Self.tipo_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="visita" EntityType="Self.visita" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_accidente_usuario" Association="Self.FK_accidente_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="accidente" EntitySet="accidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_asesoria_usuario" Association="Self.FK_asesoria_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="asesoria" EntitySet="asesoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atraso_usuario" Association="Self.FK_atraso_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="atraso" EntitySet="atraso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_capacitacion_usuario" Association="Self.FK_capacitacion_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="capacitacion" EntitySet="capacitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caso_usuario" Association="Self.FK_caso_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="caso" EntitySet="caso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_checlist_visita" Association="Self.FK_checlist_visita">
+            <End Role="visita" EntitySet="visita" />
+            <End Role="checklist" EntitySet="checklist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contrato_empresa" Association="Self.FK_contrato_empresa">
+            <End Role="empresa" EntitySet="empresa" />
+            <End Role="contrato" EntitySet="contrato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_factura_factura" Association="Self.FK_detalle_factura_factura">
+            <End Role="factura" EntitySet="factura" />
+            <End Role="detalle_factura" EntitySet="detalle_factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_contrato" Association="Self.FK_factura_contrato">
+            <End Role="contrato" EntitySet="contrato" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_multa_tipo_multa" Association="Self.FK_multa_tipo_multa">
+            <End Role="tipo_multa" EntitySet="tipo_multa" />
+            <End Role="multa" EntitySet="multa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_multa_usuario" Association="Self.FK_multa_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="multa" EntitySet="multa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_contrato" Association="Self.FK_usuario_contrato">
+            <End Role="empresa" EntitySet="empresa" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_tipo_usuario" Association="Self.FK_usuario_tipo_usuario">
+            <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_visita_usuario" Association="Self.FK_visita_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="visita" EntitySet="visita" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NMAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="accidente">
+          <Key>
+            <PropertyRef Name="id_accidente" />
+          </Key>
+          <Property Name="id_accidente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fec_accident" Type="DateTime" Precision="0" />
+          <Property Name="run_trabajador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="doc_diat" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="nombre_doc_diat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="content_type_doc_diat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="estado_accidente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_accidente_usuario" FromRole="accidente" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="asesoria">
+          <Key>
+            <PropertyRef Name="id_asesoria" />
+          </Key>
+          <Property Name="id_asesoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fec_asesoria" Type="DateTime" Precision="0" />
+          <Property Name="hor_asesoria" Type="Time" Precision="7" />
+          <Property Name="estado_asesoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_aseso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_asesoria_usuario" FromRole="asesoria" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="atraso">
+          <Key>
+            <PropertyRef Name="id_atraso" />
+          </Key>
+          <Property Name="id_atraso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="obs_atraso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fec_atraso" Type="DateTime" Precision="0" />
+          <Property Name="estado_atraso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_atraso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_atraso_usuario" FromRole="atraso" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="capacitacion">
+          <Key>
+            <PropertyRef Name="id_capacitacion" />
+          </Key>
+          <Property Name="id_capacitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fec_capacit" Type="DateTime" Precision="0" />
+          <Property Name="tema_capacit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="material_capacit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="list_asistente" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="estad_capacit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_capaci" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_capacitacion_usuario" FromRole="capacitacion" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="caso">
+          <Key>
+            <PropertyRef Name="id_caso" />
+          </Key>
+          <Property Name="id_caso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="correspondencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="documentos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="obs_profesional" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="conver_grabada" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="estado_caso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_caso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_caso_usuario" FromRole="caso" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="checklist">
+          <Key>
+            <PropertyRef Name="id_checklist" />
+          </Key>
+          <Property Name="id_checklist" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_checklist" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="obs_checklist" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="document_rev" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="nombre_doc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="extension_doc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_checklist" Type="Boolean" />
+          <Property Name="id_visita" Type="Int32" />
+          <NavigationProperty Name="visita" Relationship="Self.FK_checlist_visita" FromRole="checklist" ToRole="visita" />
+        </EntityType>
+        <EntityType Name="contrato">
+          <Key>
+            <PropertyRef Name="id_contrato" />
+          </Key>
+          <Property Name="id_contrato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fec_inicio_cont" Type="DateTime" Precision="0" />
+          <Property Name="fec_termino_cont" Type="DateTime" Precision="0" />
+          <Property Name="estado_contrato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contrado_firmado" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="nombre_contrato" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="valor_contrato" Type="Int32" />
+          <Property Name="id_empresa" Type="Int32" />
+          <NavigationProperty Name="empresa" Relationship="Self.FK_contrato_empresa" FromRole="contrato" ToRole="empresa" />
+          <NavigationProperty Name="factura" Relationship="Self.FK_factura_contrato" FromRole="contrato" ToRole="factura" />
+        </EntityType>
+        <EntityType Name="detalle_factura">
+          <Key>
+            <PropertyRef Name="id_detalle_factura" />
+          </Key>
+          <Property Name="id_detalle_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="valor_bruto" Type="Int32" />
+          <Property Name="valor_neto" Type="Int32" />
+          <Property Name="id_factura" Type="Int32" />
+          <NavigationProperty Name="factura" Relationship="Self.FK_detalle_factura_factura" FromRole="detalle_factura" ToRole="factura" />
+        </EntityType>
+        <EntityType Name="empresa">
+          <Key>
+            <PropertyRef Name="id_empresa" />
+          </Key>
+          <Property Name="id_empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rut_empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nom_empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_emp" Type="Int32" />
+          <Property Name="correo_emp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="region_empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comuna_emp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion_emp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="contrato" Relationship="Self.FK_contrato_empresa" FromRole="empresa" ToRole="contrato" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_usuario_contrato" FromRole="empresa" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="factura">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fec_factura" Type="DateTime" Precision="0" />
+          <Property Name="fec_vencimiento" Type="DateTime" Precision="0" />
+          <Property Name="estado_pago" Type="Boolean" />
+          <Property Name="visita_extra" Type="Int32" />
+          <Property Name="capaci_extra" Type="Int32" />
+          <Property Name="aseso_extra" Type="Int32" />
+          <Property Name="total_factura" Type="Int32" />
+          <Property Name="id_contrato" Type="Int32" />
+          <NavigationProperty Name="contrato" Relationship="Self.FK_factura_contrato" FromRole="factura" ToRole="contrato" />
+          <NavigationProperty Name="detalle_factura" Relationship="Self.FK_detalle_factura_factura" FromRole="factura" ToRole="detalle_factura" />
+        </EntityType>
+        <EntityType Name="multa">
+          <Key>
+            <PropertyRef Name="id_multa" />
+          </Key>
+          <Property Name="id_multa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="multa_ent_fisc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descrip_multa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="valor_multa" Type="Int32" />
+          <Property Name="estado_multa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="id_tipo_multa" Type="Int32" />
+          <NavigationProperty Name="tipo_multa" Relationship="Self.FK_multa_tipo_multa" FromRole="multa" ToRole="tipo_multa" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_multa_usuario" FromRole="multa" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tipo_multa">
+          <Key>
+            <PropertyRef Name="id_tipo_multa" />
+          </Key>
+          <Property Name="id_tipo_multa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_tip_multa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="multa" Relationship="Self.FK_multa_tipo_multa" FromRole="tipo_multa" ToRole="multa" />
+        </EntityType>
+        <EntityType Name="tipo_usuario">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_tip_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_usuario_tipo_usuario" FromRole="tipo_usuario" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="run" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a_paterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a_materno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="Int32" />
+          <Property Name="estado_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_empresa" Type="Int32" />
+          <Property Name="id_tipo_usuario" Type="Int32" />
+          <NavigationProperty Name="accidente" Relationship="Self.FK_accidente_usuario" FromRole="usuario" ToRole="accidente" />
+          <NavigationProperty Name="asesoria" Relationship="Self.FK_asesoria_usuario" FromRole="usuario" ToRole="asesoria" />
+          <NavigationProperty Name="atraso" Relationship="Self.FK_atraso_usuario" FromRole="usuario" ToRole="atraso" />
+          <NavigationProperty Name="capacitacion" Relationship="Self.FK_capacitacion_usuario" FromRole="usuario" ToRole="capacitacion" />
+          <NavigationProperty Name="caso" Relationship="Self.FK_caso_usuario" FromRole="usuario" ToRole="caso" />
+          <NavigationProperty Name="empresa" Relationship="Self.FK_usuario_contrato" FromRole="usuario" ToRole="empresa" />
+          <NavigationProperty Name="multa" Relationship="Self.FK_multa_usuario" FromRole="usuario" ToRole="multa" />
+          <NavigationProperty Name="tipo_usuario" Relationship="Self.FK_usuario_tipo_usuario" FromRole="usuario" ToRole="tipo_usuario" />
+          <NavigationProperty Name="visita" Relationship="Self.FK_visita_usuario" FromRole="usuario" ToRole="visita" />
+        </EntityType>
+        <EntityType Name="visita">
+          <Key>
+            <PropertyRef Name="id_visita" />
+          </Key>
+          <Property Name="id_visita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fec_visita" Type="DateTime" Precision="0" />
+          <Property Name="direcc_visita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hor_visita" Type="DateTime" Precision="3" />
+          <Property Name="estado_visita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_visita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Int32" />
+          <NavigationProperty Name="checklist" Relationship="Self.FK_checlist_visita" FromRole="visita" ToRole="checklist" />
+          <NavigationProperty Name="usuario" Relationship="Self.FK_visita_usuario" FromRole="visita" ToRole="usuario" />
+        </EntityType>
+        <Association Name="FK_accidente_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="accidente" Type="Self.accidente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="accidente">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_asesoria_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="asesoria" Type="Self.asesoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="asesoria">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_atraso_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="atraso" Type="Self.atraso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="atraso">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_capacitacion_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="capacitacion" Type="Self.capacitacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="capacitacion">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_caso_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="caso" Type="Self.caso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="caso">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_checlist_visita">
+          <End Role="visita" Type="Self.visita" Multiplicity="0..1" />
+          <End Role="checklist" Type="Self.checklist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visita">
+              <PropertyRef Name="id_visita" />
+            </Principal>
+            <Dependent Role="checklist">
+              <PropertyRef Name="id_visita" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_contrato_empresa">
+          <End Role="empresa" Type="Self.empresa" Multiplicity="0..1" />
+          <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa">
+              <PropertyRef Name="id_empresa" />
+            </Principal>
+            <Dependent Role="contrato">
+              <PropertyRef Name="id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factura_contrato">
+          <End Role="contrato" Type="Self.contrato" Multiplicity="0..1" />
+          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contrato">
+              <PropertyRef Name="id_contrato" />
+            </Principal>
+            <Dependent Role="factura">
+              <PropertyRef Name="id_contrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_detalle_factura_factura">
+          <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
+          <End Role="detalle_factura" Type="Self.detalle_factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factura">
+              <PropertyRef Name="id_factura" />
+            </Principal>
+            <Dependent Role="detalle_factura">
+              <PropertyRef Name="id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_contrato">
+          <End Role="empresa" Type="Self.empresa" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa">
+              <PropertyRef Name="id_empresa" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_multa_tipo_multa">
+          <End Role="tipo_multa" Type="Self.tipo_multa" Multiplicity="0..1" />
+          <End Role="multa" Type="Self.multa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_multa">
+              <PropertyRef Name="id_tipo_multa" />
+            </Principal>
+            <Dependent Role="multa">
+              <PropertyRef Name="id_tipo_multa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_multa_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="multa" Type="Self.multa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="multa">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_tipo_usuario">
+          <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="0..1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_visita_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="visita" Type="Self.visita" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="visita">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NMAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accidente" EntityType="Self.accidente" />
+          <EntitySet Name="asesoria" EntityType="Self.asesoria" />
+          <EntitySet Name="atraso" EntityType="Self.atraso" />
+          <EntitySet Name="capacitacion" EntityType="Self.capacitacion" />
+          <EntitySet Name="caso" EntityType="Self.caso" />
+          <EntitySet Name="checklist" EntityType="Self.checklist" />
+          <EntitySet Name="contrato" EntityType="Self.contrato" />
+          <EntitySet Name="detalle_factura" EntityType="Self.detalle_factura" />
+          <EntitySet Name="empresa" EntityType="Self.empresa" />
+          <EntitySet Name="factura" EntityType="Self.factura" />
+          <EntitySet Name="multa" EntityType="Self.multa" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tipo_multa" EntityType="Self.tipo_multa" />
+          <EntitySet Name="tipo_usuario" EntityType="Self.tipo_usuario" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" />
+          <EntitySet Name="visita" EntityType="Self.visita" />
+          <AssociationSet Name="FK_accidente_usuario" Association="Self.FK_accidente_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="accidente" EntitySet="accidente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_asesoria_usuario" Association="Self.FK_asesoria_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="asesoria" EntitySet="asesoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_atraso_usuario" Association="Self.FK_atraso_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="atraso" EntitySet="atraso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_capacitacion_usuario" Association="Self.FK_capacitacion_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="capacitacion" EntitySet="capacitacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_caso_usuario" Association="Self.FK_caso_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="caso" EntitySet="caso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_checlist_visita" Association="Self.FK_checlist_visita">
+            <End Role="visita" EntitySet="visita" />
+            <End Role="checklist" EntitySet="checklist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_contrato_empresa" Association="Self.FK_contrato_empresa">
+            <End Role="empresa" EntitySet="empresa" />
+            <End Role="contrato" EntitySet="contrato" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factura_contrato" Association="Self.FK_factura_contrato">
+            <End Role="contrato" EntitySet="contrato" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_detalle_factura_factura" Association="Self.FK_detalle_factura_factura">
+            <End Role="factura" EntitySet="factura" />
+            <End Role="detalle_factura" EntitySet="detalle_factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_contrato" Association="Self.FK_usuario_contrato">
+            <End Role="empresa" EntitySet="empresa" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_multa_tipo_multa" Association="Self.FK_multa_tipo_multa">
+            <End Role="tipo_multa" EntitySet="tipo_multa" />
+            <End Role="multa" EntitySet="multa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_multa_usuario" Association="Self.FK_multa_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="multa" EntitySet="multa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_tipo_usuario" Association="Self.FK_usuario_tipo_usuario">
+            <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_visita_usuario" Association="Self.FK_visita_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="visita" EntitySet="visita" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NMAModelStoreContainer" CdmEntityContainer="NMAEntities">
+          <EntitySetMapping Name="accidente">
+            <EntityTypeMapping TypeName="NMAModel.accidente">
+              <MappingFragment StoreEntitySet="accidente">
+                <ScalarProperty Name="id_accidente" ColumnName="id_accidente" />
+                <ScalarProperty Name="fec_accident" ColumnName="fec_accident" />
+                <ScalarProperty Name="run_trabajador" ColumnName="run_trabajador" />
+                <ScalarProperty Name="doc_diat" ColumnName="doc_diat" />
+                <ScalarProperty Name="nombre_doc_diat" ColumnName="nombre_doc_diat" />
+                <ScalarProperty Name="content_type_doc_diat" ColumnName="content_type_doc_diat" />
+                <ScalarProperty Name="estado_accidente" ColumnName="estado_accidente" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="asesoria">
+            <EntityTypeMapping TypeName="NMAModel.asesoria">
+              <MappingFragment StoreEntitySet="asesoria">
+                <ScalarProperty Name="id_asesoria" ColumnName="id_asesoria" />
+                <ScalarProperty Name="fec_asesoria" ColumnName="fec_asesoria" />
+                <ScalarProperty Name="hor_asesoria" ColumnName="hor_asesoria" />
+                <ScalarProperty Name="estado_asesoria" ColumnName="estado_asesoria" />
+                <ScalarProperty Name="tipo_aseso" ColumnName="tipo_aseso" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="atraso">
+            <EntityTypeMapping TypeName="NMAModel.atraso">
+              <MappingFragment StoreEntitySet="atraso">
+                <ScalarProperty Name="id_atraso" ColumnName="id_atraso" />
+                <ScalarProperty Name="obs_atraso" ColumnName="obs_atraso" />
+                <ScalarProperty Name="fec_atraso" ColumnName="fec_atraso" />
+                <ScalarProperty Name="estado_atraso" ColumnName="estado_atraso" />
+                <ScalarProperty Name="tipo_atraso" ColumnName="tipo_atraso" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="capacitacion">
+            <EntityTypeMapping TypeName="NMAModel.capacitacion">
+              <MappingFragment StoreEntitySet="capacitacion">
+                <ScalarProperty Name="id_capacitacion" ColumnName="id_capacitacion" />
+                <ScalarProperty Name="fec_capacit" ColumnName="fec_capacit" />
+                <ScalarProperty Name="tema_capacit" ColumnName="tema_capacit" />
+                <ScalarProperty Name="material_capacit" ColumnName="material_capacit" />
+                <ScalarProperty Name="list_asistente" ColumnName="list_asistente" />
+                <ScalarProperty Name="estad_capacit" ColumnName="estad_capacit" />
+                <ScalarProperty Name="tipo_capaci" ColumnName="tipo_capaci" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="caso">
+            <EntityTypeMapping TypeName="NMAModel.caso">
+              <MappingFragment StoreEntitySet="caso">
+                <ScalarProperty Name="id_caso" ColumnName="id_caso" />
+                <ScalarProperty Name="correspondencia" ColumnName="correspondencia" />
+                <ScalarProperty Name="documentos" ColumnName="documentos" />
+                <ScalarProperty Name="obs_profesional" ColumnName="obs_profesional" />
+                <ScalarProperty Name="conver_grabada" ColumnName="conver_grabada" />
+                <ScalarProperty Name="estado_caso" ColumnName="estado_caso" />
+                <ScalarProperty Name="tipo_caso" ColumnName="tipo_caso" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="checklist">
+            <EntityTypeMapping TypeName="NMAModel.checklist">
+              <MappingFragment StoreEntitySet="checklist">
+                <ScalarProperty Name="id_checklist" ColumnName="id_checklist" />
+                <ScalarProperty Name="nom_checklist" ColumnName="nom_checklist" />
+                <ScalarProperty Name="obs_checklist" ColumnName="obs_checklist" />
+                <ScalarProperty Name="document_rev" ColumnName="document_rev" />
+                <ScalarProperty Name="nombre_doc" ColumnName="nombre_doc" />
+                <ScalarProperty Name="extension_doc" ColumnName="extension_doc" />
+                <ScalarProperty Name="estado_checklist" ColumnName="estado_checklist" />
+                <ScalarProperty Name="id_visita" ColumnName="id_visita" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contrato">
+            <EntityTypeMapping TypeName="NMAModel.contrato">
+              <MappingFragment StoreEntitySet="contrato">
+                <ScalarProperty Name="id_contrato" ColumnName="id_contrato" />
+                <ScalarProperty Name="fec_inicio_cont" ColumnName="fec_inicio_cont" />
+                <ScalarProperty Name="fec_termino_cont" ColumnName="fec_termino_cont" />
+                <ScalarProperty Name="estado_contrato" ColumnName="estado_contrato" />
+                <ScalarProperty Name="contrado_firmado" ColumnName="contrado_firmado" />
+                <ScalarProperty Name="nombre_contrato" ColumnName="nombre_contrato" />
+                <ScalarProperty Name="valor_contrato" ColumnName="valor_contrato" />
+                <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle_factura">
+            <EntityTypeMapping TypeName="NMAModel.detalle_factura">
+              <MappingFragment StoreEntitySet="detalle_factura">
+                <ScalarProperty Name="id_detalle_factura" ColumnName="id_detalle_factura" />
+                <ScalarProperty Name="valor_bruto" ColumnName="valor_bruto" />
+                <ScalarProperty Name="valor_neto" ColumnName="valor_neto" />
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empresa">
+            <EntityTypeMapping TypeName="NMAModel.empresa">
+              <MappingFragment StoreEntitySet="empresa">
+                <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+                <ScalarProperty Name="rut_empresa" ColumnName="rut_empresa" />
+                <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="tipo_empresa" ColumnName="tipo_empresa" />
+                <ScalarProperty Name="telefono_emp" ColumnName="telefono_emp" />
+                <ScalarProperty Name="correo_emp" ColumnName="correo_emp" />
+                <ScalarProperty Name="region_empresa" ColumnName="region_empresa" />
+                <ScalarProperty Name="comuna_emp" ColumnName="comuna_emp" />
+                <ScalarProperty Name="direccion_emp" ColumnName="direccion_emp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="factura">
+            <EntityTypeMapping TypeName="NMAModel.factura">
+              <MappingFragment StoreEntitySet="factura">
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+                <ScalarProperty Name="fec_factura" ColumnName="fec_factura" />
+                <ScalarProperty Name="fec_vencimiento" ColumnName="fec_vencimiento" />
+                <ScalarProperty Name="estado_pago" ColumnName="estado_pago" />
+                <ScalarProperty Name="visita_extra" ColumnName="visita_extra" />
+                <ScalarProperty Name="capaci_extra" ColumnName="capaci_extra" />
+                <ScalarProperty Name="aseso_extra" ColumnName="aseso_extra" />
+                <ScalarProperty Name="total_factura" ColumnName="total_factura" />
+                <ScalarProperty Name="id_contrato" ColumnName="id_contrato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="multa">
+            <EntityTypeMapping TypeName="NMAModel.multa">
+              <MappingFragment StoreEntitySet="multa">
+                <ScalarProperty Name="id_multa" ColumnName="id_multa" />
+                <ScalarProperty Name="multa_ent_fisc" ColumnName="multa_ent_fisc" />
+                <ScalarProperty Name="descrip_multa" ColumnName="descrip_multa" />
+                <ScalarProperty Name="valor_multa" ColumnName="valor_multa" />
+                <ScalarProperty Name="estado_multa" ColumnName="estado_multa" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_tipo_multa" ColumnName="id_tipo_multa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="NMAModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_multa">
+            <EntityTypeMapping TypeName="NMAModel.tipo_multa">
+              <MappingFragment StoreEntitySet="tipo_multa">
+                <ScalarProperty Name="id_tipo_multa" ColumnName="id_tipo_multa" />
+                <ScalarProperty Name="nom_tip_multa" ColumnName="nom_tip_multa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_usuario">
+            <EntityTypeMapping TypeName="NMAModel.tipo_usuario">
+              <MappingFragment StoreEntitySet="tipo_usuario">
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+                <ScalarProperty Name="nom_tip_user" ColumnName="nom_tip_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="NMAModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="run" ColumnName="run" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="a_paterno" ColumnName="a_paterno" />
+                <ScalarProperty Name="a_materno" ColumnName="a_materno" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="estado_usuario" ColumnName="estado_usuario" />
+                <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="visita">
+            <EntityTypeMapping TypeName="NMAModel.visita">
+              <MappingFragment StoreEntitySet="visita">
+                <ScalarProperty Name="id_visita" ColumnName="id_visita" />
+                <ScalarProperty Name="fec_visita" ColumnName="fec_visita" />
+                <ScalarProperty Name="direcc_visita" ColumnName="direcc_visita" />
+                <ScalarProperty Name="hor_visita" ColumnName="hor_visita" />
+                <ScalarProperty Name="estado_visita" ColumnName="estado_visita" />
+                <ScalarProperty Name="tipo_visita" ColumnName="tipo_visita" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

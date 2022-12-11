@@ -22,5 +22,16 @@ namespace NMA_DESK.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.99.253.83;Initial Catalog=NMA;User ID=sa;Password=EsmeRaldaMU2023" +
+            "..")]
+        public string Valor {
+            get {
+                return ((string)(this["Valor"]));
+            }
+        }
     }
 }

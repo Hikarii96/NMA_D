@@ -1,6 +1,6 @@
 ﻿namespace NMA_DESK.Vistas
 {
-    partial class Profesionales
+    partial class Reporte_Profesionales
     {
         /// <summary>
         /// Required designer variable.

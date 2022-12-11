@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NMA_DESK.Vistas
 {
-    public partial class Profesionales : Form
+    public partial class Reporte_Profesionales : Form
     {
-        public Profesionales()
+        public Reporte_Profesionales()
         {
             InitializeComponent();
         }

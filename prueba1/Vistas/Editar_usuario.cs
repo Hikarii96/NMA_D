@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace NMA_DESK.Vistas
 {
-    public partial class Gestion_cliente : Form
+    public partial class Editar_usuario : Form
     {
-        public Gestion_cliente()
+        public Editar_usuario()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Editar_usuario(oUsuarios);
+            this.Close();
         }
     }
 }

@@ -15,6 +15,7 @@ namespace NMA_DESK.Vistas
         public Menu()
         {
             InitializeComponent();
+
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -24,10 +25,11 @@ namespace NMA_DESK.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Usuarios ventana = new Usuarios();
+            CRUD_usuario ventana = new CRUD_usuario();
             ventana.Show();
 
             this.Hide();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -56,10 +58,6 @@ namespace NMA_DESK.Vistas
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Gestion_cliente ventana = new Gestion_cliente();
-            ventana.Show();
-
-            this.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -72,7 +70,7 @@ namespace NMA_DESK.Vistas
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Profesionales ventana = new Profesionales();
+            Reporte_Profesionales ventana = new Reporte_Profesionales();
             ventana.Show();
 
             this.Hide();

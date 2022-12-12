@@ -13,10 +13,10 @@ namespace NMA_DESK.models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NMAEntities : DbContext
+    public partial class NMAEntities_ : DbContext
     {
-        public NMAEntities()
-            : base("name=NMAEntities")
+        public NMAEntities_()
+            : base("name=NMAEntities_")
         {
         }
     

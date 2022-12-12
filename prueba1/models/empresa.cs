@@ -24,7 +24,9 @@ namespace NMA_DESK.models
         public int id_empresa { get; set; }
         public string rut_empresa { get; set; }
         public string nom_empresa { get; set; }
+        public string estado_empresa { get; set; }
         public string tipo_empresa { get; set; }
+        public Nullable<int> cant_trabajadores { get; set; }
         public Nullable<int> telefono_emp { get; set; }
         public string correo_emp { get; set; }
         public string region_empresa { get; set; }

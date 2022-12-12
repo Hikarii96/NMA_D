@@ -11,6 +11,7 @@
           </Key>
           <Property Name="id_accidente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fec_accident" Type="date" />
+          <Property Name="tipo_accidente" Type="nvarchar" MaxLength="50" />
           <Property Name="run_trabajador" Type="varchar" MaxLength="50" />
           <Property Name="doc_diat" Type="varbinary(max)" />
           <Property Name="nombre_doc_diat" Type="varchar" MaxLength="50" />
@@ -108,7 +109,9 @@
           <Property Name="id_empresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="rut_empresa" Type="varchar" MaxLength="50" />
           <Property Name="nom_empresa" Type="varchar" MaxLength="50" />
+          <Property Name="estado_empresa" Type="varchar" MaxLength="50" />
           <Property Name="tipo_empresa" Type="varchar" MaxLength="50" />
+          <Property Name="cant_trabajadores" Type="int" />
           <Property Name="telefono_emp" Type="int" />
           <Property Name="correo_emp" Type="varchar" MaxLength="50" />
           <Property Name="region_empresa" Type="varchar" MaxLength="50" />
@@ -192,6 +195,7 @@
           <Property Name="estado_visita" Type="varchar" MaxLength="50" />
           <Property Name="tipo_visita" Type="varchar" MaxLength="50" />
           <Property Name="id_usuario" Type="int" />
+          <Property Name="id_profesional" Type="int" />
         </EntityType>
         <Association Name="FK_accidente_usuario">
           <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
@@ -446,6 +450,7 @@
           </Key>
           <Property Name="id_accidente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fec_accident" Type="DateTime" Precision="0" />
+          <Property Name="tipo_accidente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="run_trabajador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="doc_diat" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="nombre_doc_diat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -552,7 +557,9 @@
           <Property Name="id_empresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="rut_empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="nom_empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="estado_empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tipo_empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cant_trabajadores" Type="Int32" />
           <Property Name="telefono_emp" Type="Int32" />
           <Property Name="correo_emp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="region_empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -653,6 +660,7 @@
           <Property Name="estado_visita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tipo_visita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id_usuario" Type="Int32" />
+          <Property Name="id_profesional" Type="Int32" />
           <NavigationProperty Name="checklist" Relationship="Self.FK_checlist_visita" FromRole="visita" ToRole="checklist" />
           <NavigationProperty Name="usuario" Relationship="Self.FK_visita_usuario" FromRole="visita" ToRole="usuario" />
         </EntityType>
@@ -824,7 +832,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="NMAEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="NMAEntities_" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="accidente" EntityType="Self.accidente" />
           <EntitySet Name="asesoria" EntityType="Self.asesoria" />
           <EntitySet Name="atraso" EntityType="Self.atraso" />
@@ -903,12 +911,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NMAModelStoreContainer" CdmEntityContainer="NMAEntities">
+        <EntityContainerMapping StorageEntityContainer="NMAModelStoreContainer" CdmEntityContainer="NMAEntities_">
           <EntitySetMapping Name="accidente">
             <EntityTypeMapping TypeName="NMAModel.accidente">
               <MappingFragment StoreEntitySet="accidente">
                 <ScalarProperty Name="id_accidente" ColumnName="id_accidente" />
                 <ScalarProperty Name="fec_accident" ColumnName="fec_accident" />
+                <ScalarProperty Name="tipo_accidente" ColumnName="tipo_accidente" />
                 <ScalarProperty Name="run_trabajador" ColumnName="run_trabajador" />
                 <ScalarProperty Name="doc_diat" ColumnName="doc_diat" />
                 <ScalarProperty Name="nombre_doc_diat" ColumnName="nombre_doc_diat" />
@@ -1014,7 +1023,9 @@
                 <ScalarProperty Name="id_empresa" ColumnName="id_empresa" />
                 <ScalarProperty Name="rut_empresa" ColumnName="rut_empresa" />
                 <ScalarProperty Name="nom_empresa" ColumnName="nom_empresa" />
+                <ScalarProperty Name="estado_empresa" ColumnName="estado_empresa" />
                 <ScalarProperty Name="tipo_empresa" ColumnName="tipo_empresa" />
+                <ScalarProperty Name="cant_trabajadores" ColumnName="cant_trabajadores" />
                 <ScalarProperty Name="telefono_emp" ColumnName="telefono_emp" />
                 <ScalarProperty Name="correo_emp" ColumnName="correo_emp" />
                 <ScalarProperty Name="region_empresa" ColumnName="region_empresa" />
@@ -1105,6 +1116,7 @@
                 <ScalarProperty Name="estado_visita" ColumnName="estado_visita" />
                 <ScalarProperty Name="tipo_visita" ColumnName="tipo_visita" />
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_profesional" ColumnName="id_profesional" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

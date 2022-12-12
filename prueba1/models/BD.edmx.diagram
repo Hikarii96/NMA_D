@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8e34c91e575f498c9ef8af60573106d9" Name="Diagram1" ZoomLevel="17">
+      <Diagram DiagramId="e362936841e042f8936e12893accd532" Name="Diagram1">
         <EntityTypeShape EntityType="NMAModel.accidente" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.asesoria" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.atraso" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.capacitacion" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.caso" Width="1.5" PointX="5.25" PointY="22.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.checklist" Width="1.5" PointX="7.5" PointY="26.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.contrato" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.detalle_factura" Width="1.5" PointX="7.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.asesoria" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.atraso" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.capacitacion" Width="1.5" PointX="5.25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.caso" Width="1.5" PointX="5.25" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.checklist" Width="1.5" PointX="7.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.contrato" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.detalle_factura" Width="1.5" PointX="7.5" PointY="14.875" IsExpanded="true" />
         <EntityTypeShape EntityType="NMAModel.empresa" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.factura" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.multa" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.factura" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.multa" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="NMAModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.tipo_multa" Width="1.5" PointX="6" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.tipo_usuario" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.usuario" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="NMAModel.visita" Width="1.5" PointX="5.25" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.tipo_multa" Width="1.5" PointX="6" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.tipo_usuario" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.usuario" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NMAModel.visita" Width="1.5" PointX="5.25" PointY="26.25" IsExpanded="true" />
         <AssociationConnector Association="NMAModel.FK_accidente_usuario" ManuallyRouted="false" />
         <AssociationConnector Association="NMAModel.FK_asesoria_usuario" ManuallyRouted="false" />
         <AssociationConnector Association="NMAModel.FK_atraso_usuario" ManuallyRouted="false" />

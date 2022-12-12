@@ -16,6 +16,7 @@ namespace NMA_DESK.models
     {
         public int id_accidente { get; set; }
         public Nullable<System.DateTime> fec_accident { get; set; }
+        public string tipo_accidente { get; set; }
         public string run_trabajador { get; set; }
         public byte[] doc_diat { get; set; }
         public string nombre_doc_diat { get; set; }

@@ -1,27 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NMA_DESK.Vistas
+namespace Capa_Tipousuario
 {
-    public partial class Login : Form
+    public partial class UserControl1: UserControl
     {
-        public Login()
+        public UserControl1()
         {
             InitializeComponent();
-        }
-
-        private void Ingresar_Click(object sender, EventArgs e)
-        {
-            Menu vista = new Menu();
-            vista.Show();
-            
         }
     }
 }

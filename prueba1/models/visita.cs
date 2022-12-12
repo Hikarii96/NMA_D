@@ -27,6 +27,7 @@ namespace NMA_DESK.models
         public string estado_visita { get; set; }
         public string tipo_visita { get; set; }
         public Nullable<int> id_usuario { get; set; }
+        public Nullable<int> id_profesional { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<checklist> checklist { get; set; }

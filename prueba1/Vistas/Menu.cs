@@ -25,11 +25,9 @@ namespace NMA_DESK.Vistas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CRUD_usuario ventana = new CRUD_usuario();
-            ventana.Show();
-
-            this.Hide();
-
+            Crud_usuarios vista = new Crud_usuarios();
+            vista.Show();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -74,6 +72,11 @@ namespace NMA_DESK.Vistas
             ventana.Show();
 
             this.Hide();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
